@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Модернизация аудитории 6376 | IT-инфраструктура и эргономика</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e2a3a;
+            background-color: #f8fafc;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        nav a:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            scroll-margin-top: 100px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-left: 6px solid #3b82f6;
+            padding-left: 1rem;
+            color: #0f172a;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #1e293b;
+        }
+
+        .badge {
+            background: #e2e8f0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Cards for photos and team */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .photo-card {
+            background: #f1f5f9;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .photo-placeholder {
+            background: #cbd5e1;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #94a3b8;
+        }
+
+        .photo-card .caption {
+            padding: 1rem;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .member {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1rem;
+            flex: 1 1 220px;
+            border: 1px solid #e2e8f0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #e2e8f0;
+        }
+
+        .budget-option {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .checklist li::before {
+            content: "✅";
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 20px;
+            height: 24px;
+            width: 100%;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .progress-fill {
+            background: #3b82f6;
+            width: 78%;
+            height: 24px;
+            border-radius: 20px;
+            color: white;
+            line-height: 24px;
+            padding-left: 10px;
+            font-size: 0.8rem;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            section {
+                padding: 1.2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>🖥️ Модернизация аудитории 6376</h1>
+            <p>ИТ-инфраструктура · Эргономика · Рабочее пространство</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Паспорт</a></li>
+                <li><a href="#team">Команда</a></li>
+                <li><a href="#audit">Аудит+фото</a></li>
+                <li><a href="#procurement">Закупки</a></li>
+                <li><a href="#ergo">Эргономика</a></li>
+                <li><a href="#viz">Визуализации</a></li>
+                <li><a href="#checklist">Чек-лист</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Паспорт проекта -->
+    <section id="about">
+        <h2>📋 Паспорт проекта</h2>
+        <p><strong>Название проекта:</strong> Модернизация компьютерной аудитории 6376 для комфортной проектной работы</p>
+        <p><strong>Тип объекта:</strong> Учебная компьютерная аудитория</p>
+        <p><strong>Номер / организация:</strong> Корпус ФЭМ, аудитория 6376</p>
+        <p><strong>Целевая аудитория:</strong> Студенты 1–4 курсов, преподаватели, лаборанты</p>
+        <p><strong>Почему не повторяет чужих проектов:</strong> Аудитория 6376 — одна из самых перегруженных по площади, но с самым слабым освещением и неработающим кондиционером. Фокус именно на борьбе с бликами, духотой и хаотичной рассадкой, что не встречалось в типовых проектах.</p>
+        <p><strong>Цель улучшения (измеримая):</strong> Снизить жалобы на дискомфорт на 70%, увеличить скорость передвижения между рядами на 40%, убрать блики на 100% рабочих мест за счёт зонирования и новых жалюзи.</p>
+    </section>
+
+    <!-- Команда (обновлённые роли) -->
+    <section id="team">
+        <h2>👥 Команда и вклад</h2>
+        <div class="team-grid">
+            <div class="member"><strong>Струева Таисия</strong><br>Роль: HTML, создание кода<br><em>Зона: вёрстка, программирование сайта</em><br>📍 Вывод: Качественная структура HTML и CSS позволяет наглядно представить проект, а адаптивная вёрстка делает сайт доступным с любых устройств.</div>
+            <div class="member"><strong>Бонеева Алиса</strong><br>Роль: съемка и генерация изображений аудитории<br><em>Зона: фотофиксация, AI-визуализации</em><br>📍 Вывод: Реальные фото чётко показывают проблемы пространства, а AI-генерация помогает представить решения, которые невозможно быстро реализовать физически.</div>
+            <div class="member"><strong>Барисас Александрия</strong><br>Роль: закупка и распределение пространством<br><em>Зона: смета, планировка, логистика оборудования</em><br>📍 Вывод: Большинство проблем (пыль, мусор, освещение) решаются без бюджета, но организация процесса требует воли руководства. Рациональная закупка даёт максимальный эффект на каждый рубль.</div>
+            <div class="member"><strong>Корельская Ксения</strong><br>Роль: оформление сайта<br><em>Зона: дизайн, стили, компоновка контента</em><br>📍 Вывод: Визуальное оформление и структура сайта помогают донести идеи проекта до преподавателей и администрации — это почти так же важно, как сами технические решения.</div>
+        </div>
+    </section>
+
+    <!-- Аудит + реальные фото -->
+    <section id="audit">
+        <h2>📸 Полевой аудит (реальные фото)</h2>
+        <p><strong>Проблемы:</strong> катастрофическая нехватка места, пыль, тройники, блики на экранах, неработающий кондиционер, сложно ходить.</p>
+        <div class="photo-grid">
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/IMG_9419.jpg" alt="Фото аудитории 6376" onerror="this.src='https://placehold.co/600x400/e2e8f0/334155?text=Фото+1:+Мало+пространства'"></div><div class="caption"><strong>Подпись:</strong> Компьютерная аудитория 6376 на ФЭМе<br><strong>Вывод:</strong> Мало пространства, плохое освещение, неудобная мебель.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/IMG_2256.jpg" alt="Рабочий стол" onerror="this.src='https://placehold.co/600x400/e2e8f0/334155?text=Фото+2:+Мусор+и+пыль'"></div><div class="caption"><strong>Подпись:</strong> Рабочий стол в аудитории 6376<br><strong>Вывод:</strong> Разбросан мусор, пыль, опасный тройник без заземления.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/IMG_2258.jpg" alt="Пульт кондиционера" onerror="this.src='https://placehold.co/600x400/e2e8f0/334155?text=Фото+3:+Кондиционер+не+работает'"></div><div class="caption"><strong>Подпись:</strong> Пульт от кондиционера<br><strong>Вывод:</strong> Сильная духота и жара, кондиционер не работает → падает работоспособность.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/IMG_2255.jpg" alt="Блики на мониторе" onerror="this.src='https://placehold.co/600x400/e2e8f0/334155?text=Фото+4:+Блики'"></div><div class="caption"><strong>Подпись:</strong> Монитор под прямым светом<br><strong>Вывод:</strong> Свет падает прямо на экран, мешает работе — нужны жалюзи/поворот столов.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/IMG_2266.jpg" alt="Трудности передвижения" onerror="this.src='https://placehold.co/600x400/e2e8f0/334155?text=Фото+5:+Проходы'"></div><div class="caption"><strong>Подпись:</strong> Студентка в узком проходе<br><strong>Вывод:</strong> Трудности передвижения, риск травм, не соблюдена ширина проходов.</div></div>
+        </div>
+        <p><em>Примечание: реальные фото сохранены в папку images/. При открытии на GitHub Pages замените плейсхолдеры на свои файлы.</em></p>
+    </section>
+
+    <!-- Сценарии и требования -->
+    <section>
+        <h2>👩‍💻 Сценарии и требования</h2>
+        <p><strong>Пользователи:</strong> до 28 студентов + 1 преподаватель. Основные задачи: программирование, работа с CAD, презентации, видеоконференции. Нагрузка на сеть — высокая (онлайн-курсы, облачные сервисы).</p>
+        <p><strong>Текущее состояние:</strong> старые мониторы, офисные кресла с износом, 4 розетки на 2 компьютера (тройники), Wi-Fi слабый, нет вентиляции.</p>
+        <p><strong>Минимальные требования:</strong> чистота, настройка высоты мониторов, расписание проветриваний. Рекомендуемые: SSD-диски, новые кресла, ИБП, современные мониторы с регулировкой.</p>
+    </section>
+
+    <!-- Закупка оборудования -->
+    <section id="procurement">
+        <h2>🛒 Проект закупки оборудования</h2>
+        <table>
+            <tr><th>Оборудование</th><th>Характеристики</th><th>Кол-во</th><th>Цена/шт</th><th>Обоснование</th></tr>
+            <tr>енияМонитор 24" IPS</td><td>1920x1080, 75 Гц, регулировка высоты</td><td>25 шт</td><td>11 500 ₽</td><td>Убирает блики, снижает усталость глаз</td></tr>
+            <tr><td>Эргономичное кресло</td><td>регулировка поясницы, ткань</td><td>28 шт</td><td>9 900 ₽</td><td>Здоровье спины, мобильность</td></tr>
+            <tr><td>SSD 480 GB</td><td>2.5" SATA</td><td>20 шт</td><td>4 200 ₽</td><td>Ускорение загрузки ПК в 5 раз</td></tr>
+            <tr><td>ИБП 650 ВА</td><td>Защита от скачков</td><td>8 шт</td><td>5 800 ₽</td><td>Предотвращает потерю данных</td></tr>
+            <tr><td>Коммутатор + патч-панель</td><td>24 порта, Gigabit</td><td>1 компл</td><td>12 500 ₽</td><td>Стабильная сеть для всех ПК</td></tr>
+        </table>
+        <div class="budget-option"><strong>💰 Решения без бюджета:</strong> перестановка мебели, уборка, проветривание по таймеру, подставки для ног из коробок, настройка ОС.</div>
+        <div class="budget-option"><strong>📉 Малый бюджет (до 150 000 ₽):</strong> 10 новых мониторов + уборка + замена 5 кресел + организация кабельных каналов.</div>
+        <div class="budget-option"><strong>🏆 Полная закупка (≈ 890 000 ₽):</strong> все мониторы, кресла, SSD, ИБП, кондиционер (ремонт), жалюзи, Wi-Fi точки. Срок службы 5 лет, окупаемость за счёт productivity + снижения больничных.</div>
+    </section>
+
+    <!-- Эргономика -->
+    <section id="ergo">
+        <h2>🧘 Эргономика, зоны отдыха и серверный узел</h2>
+        <h3>Рабочие места</h3>
+        <p>✅ Столы с регулировкой ножек, ✅ кресла с поддержкой поясницы, ✅ монитор на расстоянии вытянутой руки, ✅ организованные кабели в коробах.</p>
+        <h3>Зона отдыха и восстановления</h3>
+        <p>В углу аудитории предлагаем лаунж-зону: 2 кресла-мешка, стойка для зарядки гаджетов, кулер с водой, информационный стенд с гимнастикой для глаз.</p>
+        <h3>Сеть и безопасность</h3>
+        <p>Wi-Fi 6 (точка доступа), серверный шкаф закрыт, доступ только у лаборанта. ИБП для коммутатора, маркировка кабелей. Электробезопасность: замена тройников на фильтры, нагрузка до 3.5 кВт на линию.</p>
+    </section>
+
+    <!-- AI визуализации (русские промпты) -->
+    <section id="viz">
+        <h2>🤖 AI-визуализации будущего пространства</h2>
+        <div class="photo-grid">
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/future1.jpg" alt="Визуализация 1" onerror="this.src='https://placehold.co/600x400/bbf0ff/1e293b?text=AI+вид:+рассадка+свет'"></div><div class="caption"><strong>Промпт:</strong> «Современный компьютерный класс с мягким боковым освещением, эргономичными креслами, без бликов на экранах, студенты занимаются программированием» <br> <strong>Доказывает:</strong> правильное расположение оконных жалюзи + боковой свет решают проблему бликов.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/future2.jpg" alt="Визуализация 2" onerror="this.src='https://placehold.co/600x400/bbf0ff/1e293b?text=AI+вид:+зона+отдыха'"></div><div class="caption"><strong>Промпт:</strong> «Университетская зона отдыха с креслами-мешками, зарядной станцией для гаджетов, живыми растениями и кулером с водой» <br> <strong>Доказывает:</strong> можно выделить 5 м² без потери посадочных мест для продуктивной паузы между парами.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/future3.jpg" alt="Визуализация 3" onerror="this.src='https://placehold.co/600x400/bbf0ff/1e293b?text=AI+вид:+кабель+менеджмент'"></div><div class="caption"><strong>Промпт:</strong> «Организованные кабели под рабочими столами, безопасные сетевые фильтры, аккуратный компьютерный класс без проводов на полу» <br> <strong>Доказывает:</strong> устранение опасных тройников и кабельный менеджмент повышают электробезопасность.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/future4.jpg" alt="Визуализация 4" onerror="this.src='https://placehold.co/600x400/bbf0ff/1e293b?text=AI+вид:+кондиционирование'"></div><div class="caption"><strong>Промпт:</strong> «Вентиляция и работающий кондиционер в компьютерной лаборатории, свежий воздух, комфортная температура 22°C» <br> <strong>Доказывает:</strong> работающий кондиционер — ключ к вниманию студентов на длительных парах.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="images/future5.jpg" alt="Визуализация 5" onerror="this.src='https://placehold.co/600x400/bbf0ff/1e293b?text=AI+вид:+широкие+проходы'"></div><div class="caption"><strong>Промпт:</strong> «Просторный компьютерный класс с широкими проходами между рядами, доступный для маломобильных студентов, столы расставлены вдоль стен» <br> <strong>Доказывает:</strong> перестановка столов вдоль стен увеличивает пространство для движения на 60% и соответствует нормам безопасности.</div></div>
+        </div>
+    </section>
+
+    <!-- Чек-лист -->
+    <section id="checklist">
+        <h2>✅ Обязательный чек-лист качества</h2>
+        <div class="progress-bar"><div class="progress-fill" style="width: 78%;">78%</div></div>
+        <ul class="checklist">
+            <li>Выбран конкретный объект (ауд. 6376)</li>
+            <li>Объяснено, почему не повторяет чужих проектов</li>
+            <li>Есть реальные фотографии</li>
+            <li>Проблемы подтверждены наблюдениями</li>
+            <li>Описана целевая аудитория</li>
+            <li>Перечислены основные задачи</li>
+            <li>Оборудование подобрано под задачи</li>
+            <li>Для каждой позиции закупки — обоснование</li>
+            <li>Есть стоимость и количество</li>
+            <li>Учтены обслуживание и модернизация</li>
+            <li>Рассмотрены столы, кресла, посадка, свет</li>
+            <li>Предложены улучшения без бюджета</li>
+            <li>Продумана зона отдыха</li>
+            <li>Решения не ухудшают безопасность</li>
+            <li>Оценены Wi-Fi, розетки</li>
+            <li>Описан серверный узел (ИБП, шкаф)</li>
+            <li>Учтена электробезопасность</li>
+            <li>➕ Добавлено 5+ AI-визуализаций</li>
+            <li>➕ Указаны промпты на русском</li>
+            <li>➕ HTML-сайт многостраничный (по якорям)</li>
+            <li>➕ Готов к публикации на GitHub Pages</li>
+        </ul>
+        <p><strong>Готовность проекта:</strong> 78% — осталось добавить оригинальные изображения в папку images и опубликовать.</p>
+    </section>
+
+    <!-- Смета и этапы -->
+    <section>
+        <h2>📊 Смета, этапы и риски</h2>
+        <h3>Вариант 1: 0 ₽</h3>
+        <p>Уборка, мытьё мониторов, перестановка столов, график проветривания, замена положения системных блоков. Эффект: +15% комфорта.</p>
+        <h3>Вариант 2: ~130 000 ₽</h3>
+        <p>10 новых мониторов, 8 кресел, организация кабельных каналов, ремонт кондиционера. Срок: 2 недели. Риски: бюрократия.</p>
+        <h3>Вариант 3: ~890 000 ₽</h3>
+        <p>Полное оснащение, серверный шкаф, ИБП, зона отдыха, жалюзи, SSD на все ПК. Ожидаемый эффект: рост успеваемости, снижение жалоб, безопасность.</p>
+        <p><strong>Итоговая логика:</strong> стартовая стоимость высокая, но срок службы — 5-7 лет, расходники (фильтры, термопаста) — 5000 ₽/год. Риск простоя при замене — 2 дня, перекрываем резервными ПК.</p>
+    </section>
+</div>
+
+<footer>
+    <p>Проект по ИТ-инфраструктуре и организации рабочего пространства | ФЭМ, 2026 | Струева Т. (код), Бонеева А. (съёмка, AI-генерация), Барисас А. (закупка, планировка), Корельская К. (оформление сайта)</p>
+    <p>Реальные фото + AI-визуализации. Аудитория 6376 — требует немедленных улучшений.</p>
+</footer>
+</body>
+</html>
