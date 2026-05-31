@@ -1,1 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Аля · Модернизация комнаты: ПК, свет, мебель и уют</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #fef9f0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2a2b45 0%, #3a4a3f 100%);
+            color: #fef9e6;
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fef9e6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            background: rgba(255,255,240,0.1);
+            backdrop-filter: blur(2px);
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: #d4a373;
+            color: #1e2a2e;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 35px -12px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            scroll-margin-top: 100px;
+            border: 1px solid #fff0e0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            border-left: 6px solid #d4a373;
+            padding-left: 1rem;
+            color: #2d3e2b;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #3a5e3a;
+            font-weight: 600;
+        }
+
+        .badge {
+            background: #fae8d4;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #b45f2b;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.8rem;
+        }
+
+        .photo-card {
+            background: #fefaf5;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.2s;
+            border: 1px solid #ffe2cc;
+        }
+
+        .photo-placeholder {
+            background: #e7ddd0;
+            height: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b3b2c;
+            font-weight: 500;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: #bcab9a;
+        }
+
+        .photo-card .caption {
+            padding: 1rem;
+        }
+
+        .problems-list {
+            background: #ffe8e0;
+            border-left: 6px solid #e07c4c;
+            padding: 1.2rem 1.8rem;
+            border-radius: 24px;
+            margin: 1.5rem 0;
+        }
+
+        .problems-list ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .problems-list li {
+            margin: 0.6rem 0;
+            font-weight: 500;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            margin-top: 1rem;
+        }
+
+        .member {
+            background: #fff9f2;
+            border-radius: 24px;
+            padding: 1.2rem;
+            flex: 1 1 210px;
+            border: 1px solid #f3e1d0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #e9cfb5;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f2e3d6;
+            font-weight: 700;
+            color: #5a3e2a;
+        }
+
+        .budget-option {
+            background: #faf2e9;
+            padding: 1rem 1.5rem;
+            border-radius: 24px;
+            margin: 1rem 0;
+            border-left: 5px solid #c0844b;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.55rem 0;
+            border-bottom: 1px solid #f0decb;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .checklist li::before {
+            content: "🪄";
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            background: #eadbcb;
+            border-radius: 30px;
+            height: 26px;
+            width: 100%;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        .progress-fill {
+            background: #c0844b;
+            width: 68%;
+            height: 26px;
+            border-radius: 30px;
+            color: white;
+            line-height: 26px;
+            padding-left: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .highlight-note {
+            background: #e6f4e8;
+            border-radius: 20px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            border-left: 5px solid #5c8f4c;
+        }
+
+        footer {
+            background: #272e23;
+            color: #e7dacf;
+            text-align: center;
+            padding: 1.6rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 720px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            section {
+                padding: 1.2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>✨ Аля · Новая комната</h1>
+            <p>Рабочее место с нуля · Свет · Современная мебель</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Паспорт</a></li>
+                <li><a href="#team">Команда</a></li>
+                <li><a href="#audit">4 минуса + фото</a></li>
+                <li><a href="#procurement">Смета и покупки</a></li>
+                <li><a href="#ergo">Эргономика</a></li>
+                <li><a href="#viz">AI‑визуализации</a></li>
+                <li><a href="#checklist">Чек‑лист</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Паспорт проекта Али -->
+    <section id="about">
+        <h2>📋 Паспорт: комната Али → современное цифровое пространство</h2>
+        <p><strong>Название проекта:</strong> «Аля 2.0 — Компьютер, свет, эргономика и обновлённый стиль»</p>
+        <p><strong>Локация:</strong> Комната Али (≈ 14 м², спальня + будущая рабочая зона)</p>
+        <p><strong>Целевая аудитория:</strong> Я, Аля (студентка / удалёнщица, мечтаю о полноценном ПК-месте)</p>
+        <p><strong>Главные боли:</strong> 🚫 нет компьютера → учёба и хобби на маленьком ноутбуке на коленях; 💡 тусклый свет → устают глаза; 🪑 нет стола и кресла → спина болит; 🛋️ старая мебель — атмосфера "дедовской дачи".</p>
+        <p><strong>Уникальность:</strong> С нуля создаём функциональный уголок для гейминга/работы, заменяем устаревшую мебель и превращаем комнату в современное, светлое и продуктивное место.</p>
+        <p><strong>Измеримая цель:</strong> Купить компьютер (системник+монитор), организовать письменный стол+кресло, повысить освещённость до 500 люкс, обновить минимум 3 предмета мебели → повысить концентрацию и комфорт на 200%.</p>
+    </section>
+
+    <!-- Команда (сама Аля + помощники) -->
+    <section id="team">
+        <h2>👩‍🎨 Исполнители и вдохновители</h2>
+        <div class="team-grid">
+            <div class="member"><strong>🎯 Аля — хозяйка комнаты</strong><br>Роль: идейный лидер, бюджет, замеры, монтаж, выбор цвета.<br><em>Зона:</em> решаю, что мне действительно нужно.<br>📍 "Я хочу играть в нормальные игры и не горбиться".</div>
+            <div class="member"><strong>🖥️ IT-консультант + сборка ПК</strong><br>Роль: подбор комплектующих в сжатый бюджет, сборка.<br><em>Зона:</em> железо, периферия.<br>📍 Результат: мощный ПК для работы/игр.</div>
+            <div class="member"><strong>🎨 AI‑дизайнер и визуализатор</strong><br>Роль: промпты для фотореалистичных рендеров будущей комнаты.<br><em>Зона:</em> показать, как преобразится комната с новым столом, креслом и светом.<br>📍 Мотивация: наглядно видеть цель.</div>
+        </div>
+    </section>
+
+    <!-- АУДИТ: 4 минуса (нет ПК, свет, стол/кресло, старая мебель) -->
+    <section id="audit">
+        <h2>📸 Фотофиксация: главные 4 минуса (ДО модернизации)</h2>
+        <p><strong>Честный аудит:</strong> выделила 4 ключевых проблемы, которые мешают работать, учиться и расслабляться.</p>
+        
+        <div class="problems-list">
+            <strong>⚠️ 4 минуса моей комнаты (подтверждено фото):</strong>
+            <ul>
+                <li>🖥️ <strong>Нет компьютера</strong> — работа/игры исключительно с ноута на коленях, слабая производительность, невозможность полноценно учиться графике.</li>
+                <li>💡 <strong>Плохое освещение</strong> — один плафон под потолком, темные углы, невозможно читать/печатать вечером, постоянное напряжение глаз.</li>
+                <li>🪑 <strong>Нет рабочего стола и кресла</strong> — учусь на диване или кровати, сутулая спина, нет места для монитора, книг, стакана.</li>
+                <li>🛋️ <strong>Старая мебель</strong> — советский шкаф, неудобная тумба, выцветший текстиль, комната выглядит депрессивно, нет стиля.</li>
+            </ul>
+        </div>
+
+        <div class="photo-grid">
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%239a8c7c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff0e0' font-size='12'%3E🖥️ ФОТО: Ноут на кровати, нет ПК%3C/text%3E%3C/svg%3E" alt="Нет компьютера"></div><div class="caption"><strong>Минус №1 — Нет ПК</strong><br>Старый ноутбук тормозит, розетки далеко, нет нормального рабочего места. <strong>Решение:</strong> собрать/купить системный блок, монитор 24", клавиатуру и мышь.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%237d6b57'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12'%3E💡 ФОТО: Тусклая люстра, темно%3C/text%3E%3C/svg%3E" alt="Плохое освещение"></div><div class="caption"><strong>Минус №2 — Плохое освещение</strong><br>Только верхний слабый свет + абажур, бликов нет, но недостаточно. <strong>Решение:</strong> настольный светодиодный светильник (4000K) и торшер в угол.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%23bfa78a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%232d2b26' font-size='12'%3E🪑 ФОТО: Нет стола и кресла%3C/text%3E%3C/svg%3E" alt="Нет рабочего стола"></div><div class="caption"><strong>Минус №3 — Нет стола и кресла</strong><br>Учёба на диване, спина затекает. <strong>Решение:</strong> купить письменный стол 120×60 см и эргономичное кресло.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%23b48b6b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12'%3E🛋️ ФОТО: Старая мебель, 90-е%3C/text%3E%3C/svg%3E" alt="Старая мебель"></div><div class="caption"><strong>Минус №4 — Старая мебель</strong><br>Шкаф с облезлой фурнитурой, древняя тумба. <strong>Решение:</strong> покраска, замена ручек или утилизация + новый стеллаж.</div></div>
+        </div>
+        
+        <div class="highlight-note">
+            <span>🎯</span>
+            <div><strong>Ключевая цель:</strong> превратить комнату из спальни-захламлённости в современную студию для жизни и работы. Первым делом — стол + ПК + качественный свет!</div>
+        </div>
+    </section>
+
+    <!-- Сценарии использования и требования Али -->
+    <section>
+        <h2>🎯 Мои сценарии после апгрейда</h2>
+        <p><strong>Что я хочу делать в новой комнате:</strong> играть в современные игры (Steam), учиться на онлайн-курсах, работать с графикой и текстами, смотреть фильмы, вести видеоблоги. Также важно принимать подруг и чувствовать гордость за интерьер.</p>
+        <p><strong>Критические требования:</strong> надежный компьютер без тормозов, удобная посадка для спины (стол+кресло), яркий свет с регулировкой, минимализм и ощущение простора. Старая мебель — либо реставрация, либо замена.</p>
+        <p><strong>Бюджетные этапы:</strong> начать с базового набора (стол, стул, лампа), через месяц докупить ПК, и параллельно обновлять аксессуары.</p>
+    </section>
+
+    <!-- Смета и закупки (решения для всех минусов) -->
+    <section id="procurement">
+        <h2>🛒 Смета: закрываем 4 минуса (ПК, свет, стол+кресло, новая мебель)</h2>
+        <table>
+            <thead><tr><th>Категория / товар</th><th>Характеристики</th><th>Кол-во</th><th>Цена (₽)</th><th>Какой минус решает</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>💻 Компьютер (системный блок)</td><td>Ryzen 5 / 16GB / SSD 512GB / видеокарта RTX 3060</td><td>1</td><td>55 000</td><td>❌ Нет компьютера → мощный ПК для любых задач</td></tr>
+                <tr><td>🖥️ Монитор 24"</td><td>IPS, 75 Гц, антибликовое покрытие</td><td>1</td><td>12 490</td><td>Рабочее место + здоровье глаз</td></tr>
+                <tr><td>📌 Письменный стол</td><td>120×60 см, регулируемые ножки, ЛДСП дуб</td><td>1</td><td>4 990</td><td>❌ нет стола → появляется полноценная зона</td></tr>
+                <tr><td>🪑 Эргономичное кресло</td><td>газлифт, поясничный упор, сетчатая спинка</td><td>1</td><td>12 690</td><td>❌ нет кресла → спина и шея в порядке</td></tr>
+                <tr><td>💡 Настольный LED светильник</td><td>4000K, сенсор, USB, регулировка яркости</td><td>1</td><td>2 190</td><td>❌ плохое освещение → качественный свет на стол</td></tr>
+                <tr><td>🌟 Торшер</td><td>напольный, дизайн, тёплый свет + холодный</td><td>1</td><td>2 790</td><td>Общее освещение вечером (убирает темноту)</td></tr>
+                <tr><td>📦 Новый стеллаж / замена тумбы</td><td>открытые полки, современный вид</td><td>1</td><td>3 590</td><td>❌ старая мебель → свежий минимализм</td></tr>
+                <tr><td>🖱️ Клавиатура + мышь (проводные)</td><td>механическая тихая / эргономичная мышь</td><td>1</td><td>3 200</td><td>Удобство работы с ПК</td></tr>
+                <tr><td>🧹 Органайзеры для кабелей / декор</td><td>каналы, подставки</td><td>1</td><td>1 200</td><td>Чистота на столе</td></tr>
+            </tbody>
+        </table>
+        <div class="budget-option"><strong>💰 Бюджет "Старт без ПК" (~ 25 500 ₽):</strong> стол + кресло + светильник + торшер + стеллаж. Уже кардинально меняет комнату, создаёт место для ноутбука (до покупки компа).</div>
+        <div class="budget-option"><strong>🚀 Полный гаминг/рабочий бюджет (~ 98 140 ₽):</strong> системник+монитор+кресло+стол+новый свет+стеллаж. Комната превращается в современный хаб, я забываю про старую мебель и отсутствие ПК.</div>
+        <div class="budget-option"><strong>♻️ Антикризисные решения (0-2000₽):</strong> переставить мебель, максимально использовать дневной свет, купить яркую LED-ленту за 700₽ и временный стол-трансформер (доска на подлокотниках). Но лучше придерживаться основного плана.</div>
+    </section>
+
+    <!-- Эргономика + организация пространства -->
+    <section id="ergo">
+        <h2>🧘 Эргономика и современный дизайн с нуля</h2>
+        <h3>Рабочее место мечты</h3>
+        <p>✅ Стол подобран по высоте 74 см, ✅ кресло с регулировкой высоты и поясничной опорой, ✅ монитор на уровне глаз (подставка при необходимости), ✅ свободное пространство для клавиатуры и мыши, ✅ локти под 90°.</p>
+        <h3>Свет — решаем проблему полностью</h3>
+        <p>Настольная лампа с направленным светом + торшер для общего фонового. Днём — естественный свет (тонкие шторы). Замена люстры на более яркую (опционально). Глаза больше не устают.</p>
+        <h3>Новая жизнь мебели: избавляемся от старого</h3>
+        <p>Старый шкаф можно перекрасить или заменить на компактный стеллаж. Дополнительно: ковёр с геометрией, постельное бельё нейтральное, постеры — комната станет стильной и вдохновляющей.</p>
+        <div class="highlight-note" style="background:#fff1e0;">
+            <span>✨ Главные 4 минуса — решены:</span>
+            <div>1️⃣ Появился компьютер (производительность) ✅ <br>2️⃣ Многоуровневое освещение ✅ <br>3️⃣ Стол + эргономичное кресло ✅ <br>4️⃣ Обновлена старая мебель, свежий интерьер ✅</div>
+        </div>
+    </section>
+
+    <!-- AI-визуализации будущего -->
+    <section id="viz">
+        <h2>🤖 AI-визуализации: моя комната после преображения</h2>
+        <div class="photo-grid">
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%23c8d9bf'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23344e2d' font-size='11'%3E🖥️ ПК МЕЧТЫ: стол+монитор+кресло%3C/text%3E%3C/svg%3E" alt="Рабочее место"></div><div class="caption"><strong>Промпт:</strong> «Современный рабочий уголок девушки: белый стол, эргономичное кресло, мощный ПК с подсветкой, настольная лампа, минимализм» — <strong>решает:</strong> нет компьютера и стола.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%23ffe0b5'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23704e2c' font-size='11'%3E✨ Свет и свежая мебель%3C/text%3E%3C/svg%3E" alt="Освещение"></div><div class="caption"><strong>Промпт:</strong> «Светлая комната, торшер и настольный светильник 4000К, чистый пол, отсутствие старой рухляди, стильный стеллаж» — <strong>решает:</strong> плохое освещение + старая мебель.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%23eeddcc'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%233d2b1a' font-size='11'%3E🪑 Эргономичный комфорт%3C/text%3E%3C/svg%3E" alt="Кресло"></div><div class="caption"><strong>Промпт:</strong> «девушка сидит в удобном офисном кресле за компьютером, прямая спина, ноги на полу, монитор на уровне глаз, уютная атмосфера» — визуализация здоровья спины.</div></div>
+            <div class="photo-card"><div class="photo-placeholder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='210' viewBox='0 0 400 210'%3E%3Crect width='400' height='210' fill='%23bdd4bf'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%232d3e28' font-size='11'%3E🎮 Игровая зона / учёба%3C/text%3E%3C/svg%3E" alt="Игровая зона"></div><div class="caption"><strong>Промпт:</strong> «Игровая комната с современным ПК, монитор 24”, стильный стол, RGB подсветка, книги и порядок» — решение старых мебельных проблем + вдохновение.</div></div>
+        </div>
+    </section>
+
+    <!-- Чек-лист -->
+    <section id="checklist">
+        <h2>✅ Чек-лист преображения комнаты Али</h2>
+        <div class="progress-bar"><div class="progress-fill" style="width: 68%;">68% готово (план и закупки начаты)</div></div>
+        <ul class="checklist">
+            <li>Выявлены 4 главных минуса: нет ПК, плохой свет, нет стола+кресла, старая мебель</li>
+            <li>Составлен паспорт проекта и уникальная концепция</li>
+            <li>Сделаны реалистичные заглушки фото «до» (будут заменены реальными снимками)</li>
+            <li>Составлена смета с двумя уровнями бюджета (стартовый и полный)</li>
+            <li>Подобраны эргономические решения (стол, кресло, высота монитора)</li>
+            <li>План освещения: настольная лампа + торшер + замена люстры</li>
+            <li>Выбрана стратегия обновления мебели: стеллаж вместо старого шкафа</li>
+            <li>4 AI-рендера будущей комнаты с промптами</li>
+            <li>Чек-лист выполнения и этапы (2-3 недели на реализацию)</li>
+            <li>Сайт адаптивный, современный дизайн, готов к публикации на GitHub Pages</li>
+        </ul>
+        <p><strong>Текущий прогресс:</strong> 68% — осталось купить компьютер и довести до конца замену мебели. Освещение и стол уже в процессе заказа. Комната Али обретёт новую жизнь!</p>
+    </section>
+
+    <!-- План действий по неделям -->
+    <section>
+        <h2>📅 План модернизации: 4 недели</h2>
+        <h3>Неделя 1 (база):</h3>
+        <p>✔️ Освободить пространство, избавиться от ненужной старой мебели. ✔️ Заказать стол, кресло, настольную лампу + торшер (≈ 25 000 ₽). ✔️ Сделать замеры под ПК.</p>
+        <h3>Неделя 2 (свет и организация):</h3>
+        <p>✔️ Собрать стол и кресло, установить светильники. ✔️ Временно использовать ноутбук за новым столом — оценить удобство. ✔️ Купить стеллаж для книг и декора.</p>
+        <h3>Неделя 3–4 (покупка компьютера):</h3>
+        <p>✔️ Заказать системный блок, монитор, клавиатуру. ✔️ Подключить всю технику, спрятать провода в каналы. ✔️ Финальный декор: постеры, растение, коврик. Комната Али готова — минусы устранены полностью!</p>
+    </section>
+</div>
+
+<footer>
+    <p>🖥️✨ Проект «Аля · Новая комната» — полная трансформация: компьютер, свет, рабочее место и отказ от старой мебели. 2026 год</p>
+    <p>🧡 Сайт создан для наглядного плана модернизации. Все 4 минуса решаются пошагово — осталось только действовать!</p>
+</footer>
+</body>
+</html>
