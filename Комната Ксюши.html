@@ -1,1 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ксюша · Порядок и стиль: чистый стол, свет, коллекция Monster High и косметика на своих местах</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #2d2a2c;
+            background: #fef6f0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2f2d47 0%, #9b6a6a 100%);
+            color: #fff9f0;
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff9f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            background: rgba(255,245,235,0.15);
+            backdrop-filter: blur(2px);
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: #e5b59b;
+            color: #2d2320;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 35px -12px rgba(0,0,0,0.08);
+            transition: 0.2s;
+            scroll-margin-top: 100px;
+            border: 1px solid #ffe8db;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            border-left: 6px solid #e5978a;
+            padding-left: 1rem;
+            color: #7e4f4a;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #b26b5c;
+            font-weight: 600;
+        }
+
+        .badge {
+            background: #fbe6db;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #c1634b;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.8rem;
+        }
+
+        .photo-card {
+            background: #fefaf5;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.2s;
+            border: 1px solid #ffe2d4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: #e1cfc0;
+            display: block;
+        }
+
+        .photo-card .caption {
+            padding: 1rem;
+        }
+
+        .photo-card .caption strong {
+            color: #c0563a;
+        }
+
+        .photo-note {
+            font-size: 0.75rem;
+            color: #a57362;
+            margin-top: 8px;
+            background: #fff6ef;
+            padding: 4px 10px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        .problems-list {
+            background: #fff1ea;
+            border-left: 6px solid #e5978a;
+            padding: 1.2rem 1.8rem;
+            border-radius: 24px;
+            margin: 1.5rem 0;
+        }
+
+        .problems-list ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .problems-list li {
+            margin: 0.6rem 0;
+            font-weight: 500;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            margin-top: 1rem;
+        }
+
+        .member {
+            background: #fffaf4;
+            border-radius: 24px;
+            padding: 1.2rem;
+            flex: 1 1 210px;
+            border: 1px solid #f5e0d2;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #f0daca;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #faf0e8;
+            font-weight: 700;
+            color: #a65840;
+        }
+
+        .budget-option {
+            background: #fcf3ec;
+            padding: 1rem 1.5rem;
+            border-radius: 24px;
+            margin: 1rem 0;
+            border-left: 5px solid #e29b82;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.55rem 0;
+            border-bottom: 1px solid #f2e0d2;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .checklist li::before {
+            content: "💖";
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            background: #ebd7cb;
+            border-radius: 30px;
+            height: 26px;
+            width: 100%;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        .progress-fill {
+            background: #e5978a;
+            width: 41%;
+            height: 26px;
+            border-radius: 30px;
+            color: white;
+            line-height: 26px;
+            padding-left: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .highlight-note {
+            background: #f7ede5;
+            border-radius: 20px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            border-left: 5px solid #c28972;
+        }
+
+        .img-replace-guide {
+            background: #f9efea;
+            padding: 1rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            border: 1px dashed #e2bba8;
+        }
+
+        footer {
+            background: #2e2622;
+            color: #efe2d6;
+            text-align: center;
+            padding: 1.6rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 720px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            section {
+                padding: 1.2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>🎀 Ксюша · Порядок и стиль</h1>
+            <p>Хлам → органайзер · Яркий свет · Monster High дом · Косметик-зона</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Паспорт</a></li>
+                <li><a href="#team">Команда</a></li>
+                <li><a href="#audit">4 минуса + фото</a></li>
+                <li><a href="#procurement">Смета и покупки</a></li>
+                <li><a href="#ergo">Эргономика + хранение</a></li>
+                <li><a href="#viz">Визуализации</a></li>
+                <li><a href="#checklist">Чек‑лист</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <!-- ИНСТРУКЦИЯ ПО ВСТАВКЕ ФОТО -->
+    <div class="img-replace-guide">
+        <strong>📸 КАК ВСТАВИТЬ СВОИ ФОТОГРАФИИ:</strong><br>
+        1️⃣ Ниже в секции «Фотофиксация» найдите 4 карточки с минусами.<br>
+        2️⃣ В каждом теге <code>&lt;img src="..."&gt;</code> замените путь на свой файл. Например: <code>src="stol_hlam.jpg"</code> или <code>src="foto/temno.jpg"</code>.<br>
+        3️⃣ Чтобы фото не искажались — используйте изображения с соотношением сторон ≈16:10 (ширина ~1200px).<br>
+        4️⃣ То же самое для секции <strong>«AI-визуализации»</strong> — там тоже можно заменить на реальные фото <strong>ПОСЛЕ</strong> уборки!
+    </div>
+
+    <!-- Паспорт проекта Ксюши -->
+    <section id="about">
+        <h2>📋 Паспорт: комната Ксюши → чистота, свет и королевство кукол</h2>
+        <p><strong>Название проекта:</strong> «Ксюша 2.0 — Чистый стол, яркий свет, домик для Monster High и косметика на местах»</p>
+        <p><strong>Локация:</strong> Комната Ксюши (≈ 13 м², рабочая + игровая + beauty-зона)</p>
+        <p><strong>Целевая аудитория:</strong> Я, Ксюша — коллекционер Monster High, визажист-любитель, ценю порядок, но техника и куклы заполонили поверхность.</p>
+        <p><strong>Главные боли (4 столпа хаоса):</strong> 🗄️ 1) ЗАХЛАМЛЕННЫЙ РАБОЧИЙ СТОЛ — горы бумаг, ручек, зарядок, нет места для учёбы. 💡 2) ПЛОХОЕ ОСВЕЩЕНИЕ — тусклая лампа, вечером глаза болят, косметику плохо видно. 🧛‍♀️ 3) МАЛО МЕСТА ДЛЯ КУКОЛ MONSTER HIGH — коллекция растёт, а полки нет, стоят в пыльных коробках. 💄 4) РАЗБРОСАННАЯ КОСМЕТИКА — тени, кисти, помады везде, теряются, портятся.</p>
+        <p><strong>Уникальность:</strong> создаём эргономичную систему хранения: органайзеры на стол, настенные полки для Monster High, подвесные косметички + светодиодную ленту для идеального макияжа.</p>
+        <p><strong>Измеримая цель:</strong> очистить поверхность стола на 100%, повесить 2 новые полки для кукол, установить яркое освещение 1000 люмен и органайзеры для 30+ предметов косметики → превратить хаос в вдохновляющий порядок.</p>
+    </section>
+
+    <!-- Команда -->
+    <section id="team">
+        <h2>👩‍🎨 Мои помощники и вдохновители</h2>
+        <div class="team-grid">
+            <div class="member"><strong>💅 Ксюша — главный организатор</strong><br>Роль: сортировка, декор, выбор мест для кукол.<br><em>Зона:</em> решаю, где будет жить Дракулаура.<br>📍 "Хочу, чтобы куклы были на виду, а стол сиял чистотой".</div>
+            <div class="member"><strong>🪄 Мама / папа (хелпер)</strong><br>Роль: монтаж полок, покупка светильников, органайзеров.<br><em>Зона:</em> техническая поддержка и бюджет.<br>📍 Результат: надежные полки для Monster High + свет.</div>
+            <div class="member"><strong>💡 Мастер по освещению (консультант)</strong><br>Роль: выбор LED-ленты, настольного светильника с нейтральным светом.<br><em>Зона:</em> больше никаких теней на столе.<br>📍 Мотивация: чётко видеть помаду и учебники.</div>
+        </div>
+    </section>
+
+    <!-- АУДИТ: 4 минуса (с готовыми тегами для фото) -->
+    <section id="audit">
+        <h2>📸 Фотофиксация: главные 4 минуса (КОГДА ВСЁ ПЛОХО)</h2>
+        <p><strong>Честный фотоаудит:</strong> именно эти проблемы мешают учиться, играть и краситься с удовольствием.</p>
+        
+        <div class="problems-list">
+            <strong>⚠️ 4 катастрофы в моей комнате (фото подтверждают):</strong>
+            <ul>
+                <li>📚 <strong>Захламленный рабочий стол</strong> — кипы тетрадей, фантики, старые наушники, флешки. Негде поставить ноутбук, куклы лежат прямо на клавиатуре.</li>
+                <li>💡 <strong>Плохое освещение</strong> — один слабый светильник с жёлтым светом, рабочая зона в тени, портится зрение и настроение.</li>
+                <li>🧛‍♀️ <strong>Мало места для кукол Monster High</strong> — коллекция царапается, пылится на шкафу, не видно красоту, нет полноценного "домика" или полки для них.</li>
+                <li>💄 <strong>Разбросанная косметика</strong> — кисти в стакане с ручками, тени рассыпаны, помады потеряли колпачки, бардак на туалетном столике.</li>
+            </ul>
+        </div>
+
+        <div class="photo-grid">
+            <!-- КАРТОЧКА 1: Захламленный стол -->
+            <div class="photo-card">
+                <img src="zahlam_stol.jpg" alt="Захламленный рабочий стол" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%23bcab97%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%27white%27 font-size=%2712%27%3E📸 ЗАМЕНИТЕ НА ФОТО: заваленный стол%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>Минус №1 — Захламленный стол</strong><br>Горы бумаг, техника, куклы на клавиатуре. <strong>Решение:</strong> контейнеры, лотки, сортировка, освободить 80% поверхности.</div>
+            </div>
+            <!-- КАРТОЧКА 2: Плохое освещение -->
+            <div class="photo-card">
+                <img src="plohoy_svet.jpg" alt="Тусклое освещение" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%23867662%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%27white%27 font-size=%2712%27%3E💡 ФОТО: темный угол, тусклая лампа%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>Минус №2 — Плохое освещение</strong><br>Одна настольная лампа дает тень. <strong>Решение:</strong> LED-панель + настольный светильник 4000K.</div>
+            </div>
+            <!-- КАРТОЧКА 3: Мало места для Monster High -->
+            <div class="photo-card">
+                <img src="monster_high_ploho.jpg" alt="Куклы без места" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%239f8b73%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%27white%27 font-size=%2712%27%3E🧛‍♀️ ФОТО: куклы Monster High пылятся в углу%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>Минус №3 — Мало места для Monster High</strong><br>Коллекция в коробках, жмутся на полке. <strong>Решение:</strong> навесные полки-витрины или стеллаж с подсветкой.</div>
+            </div>
+            <!-- КАРТОЧКА 4: Разбросанная косметика -->
+            <div class="photo-card">
+                <img src="kosmetika_besporyadok.jpg" alt="Разбросанная косметика" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%23c2a489%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%27%232b1e15%27 font-size=%2712%27%3E💄 ФОТО: рассыпанные тени, кисти, помады%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>Минус №4 — Разбросанная косметика</strong><br>Кисти, баночки, помады вперемешку. <strong>Решение:</strong> прозрачные органайзеры, подставки, косметичка на подвесе.</div>
+            </div>
+        </div>
+        
+        <div class="highlight-note">
+            <span>🎯</span>
+            <div><strong>Цель №1:</strong> Освободить стол на 95%. <strong>Цель №2:</strong> Светлое рабочее место (минимум 700 люкс). <strong>Цель №3:</strong> Домик для Monster High на новой полке. <strong>Цель №4:</strong> Каждый тюбик в своем "домике".</div>
+        </div>
+    </section>
+
+    <!-- Сценарии использования -->
+    <section>
+        <h2>🎀 Мои сценарии после наведения порядка</h2>
+        <p><strong>Что я хочу делать:</strong> делать уроки на чистом столе, не искать ручку среди мусора. Вечером краситься при ярком свете, видеть каждую кисть. Любоваться коллекцией Monster High — они будут стоять как в витрине. Приглашать подруг, хвастаться порядком.</p>
+        <p><strong>Критические требования:</strong> удобные органайзеры для мелочей, крепкие полки для кукол, многоуровневый свет (общий + локальный), система хранения косметики по категориям.</p>
+        <p><strong>Бюджетные этапы:</strong> 1) уборка+сортировка (0₽) + настольный светильник; 2) простые полки для Monster High; 3) органайзеры для косметики.</p>
+    </section>
+
+    <!-- Смета и закупки (решения для всех минусов) -->
+    <section id="procurement">
+        <h2>🛒 Смета: Убираем хлам, дарим свет + место Monster High и косметике</h2>
+        <table>
+            <thead><tr><th>Категория / товар</th><th>Характеристики</th><th>Кол-во</th><th>Цена (₽)</th><th>Какой минус решает</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>📦 Набор органайзеров для стола</td><td>лотки, подставки под канцелярию, секции для проводов</td><td>1 компл.</td><td>1 890</td><td>❌ захламленный стол → каждая вещь на своем месте</td></tr>
+                <tr><td>💡 Настольный светодиодный светильник</td><td>4000K, яркость 1000 люмен, гибкая ножка, сенсор</td><td>1 шт</td><td>2 490</td><td>❌ плохое освещение → идеальный свет для учебы и макияжа</td></tr>
+                <tr><td>⭐ Светодиодная лента для рабочей зоны</td><td>длина 2м, нейтральный белый, клейкая основа</td><td>1 шт</td><td>1 150</td><td>дополнительное освещение над столом/полкой</td></tr>
+                <tr><td>🧛‍♀️ Навесные полки для кукол Monster High</td><td>2 шт, белые/розовые, 60 см, глубокие (20см)</td><td>2 шт</td><td>3 180</td><td>❌ мало места для кукол → настоящий подиум для коллекции</td></tr>
+                <tr><td>💄 Прозрачный органайзер для косметики</td><td>вращающийся/секционный, 3 уровня</td><td>1 шт</td><td>1 690</td><td>❌ разбросанная косметика → всё на виду, аккуратно</td></tr>
+                <tr><td>🧺 Корзины-контейнеры под стол</td><td>2 шт, пластик/текстиль для бумаг и мелочей</td><td>2 шт</td><td>1 400</td><td>хранение несезонных вещей, освобождает верх стола</td></tr>
+                <tr><td>🖌️ Подставка для кистей и спонжей</td><td>силиконовая/акриловая с перфорацией</td><td>1 шт</td><td>590</td><td>порядок в косметических инструментах</td></tr>
+                <tr><td>🎀 Декор (стикеры, подвески для кукольных полок)</td><td>Monster High тематика, мини-рамки</td><td>набор</td><td>800</td><td>вдохновение и стиль</td></tr>
+            </tbody>
+        </table>
+        <div class="budget-option"><strong>📦 Базовый уровень «Генеральная уборка+свет» (~ 7 400 ₽):</strong> светильник + органайзер на стол + подставка для кистей + одна полка для кукол. Хаос уходит мгновенно.</div>
+        <div class="budget-option"><strong>💖 Полный антихаос (~ 13 200 ₽):</strong> все позиции из таблицы. Куклы получают две крутые полки, стол становится идеальным, косметика рассортирована, свет везде.</div>
+        <div class="budget-option"><strong>✨ Нулевой бюджет на старте:</strong> переставить мебель, использовать банки как органайзеры, перевесить зеркало для света. Но лучше — сделать проект сразу красиво.</div>
+    </section>
+
+    <!-- Эргономика + система хранения -->
+    <section id="ergo">
+        <h2>🧠 Эргономика и зонирование: как я победила 4 минуса</h2>
+        <h3>1. Стол — чистота и порядок</h3>
+        <p>✅ Все предметы в лотках: пеналы, зарядки, ежедневники. ✅ Есть место для ноутбука и тетрадей. ✅ Кабель-каналы прячут провода.</p>
+        <h3>2. Световая революция</h3>
+        <p>Основной свет + настольная лампа 4000K + светодиодная лента под полкой. Глаза не устают, видно текстуру теней.</p>
+        <h3>3. Королевство Monster High</h3>
+        <p>Навесные полки на уровне глаз. Куклы стоят в ряд, можно сделать фон в виде школы Monster High. Никакой пыли — еженедельная протирка.</p>
+        <h3>4. Косметический рай</h3>
+        <p>Вращающийся органайзер (баночки+кисти) + маленькие ящики для помад и палеток. Порядок занимает 2 минуты в день.</p>
+        <div class="highlight-note" style="background:#fef0e8;">
+            <span>✨ Результат: 4 минуса уничтожены</span>
+            <div>📚 Стол чист ✅ | 💡 Свет яркий и комфортный ✅ | 🧛‍♀️ Monster High на почётных полках ✅ | 💄 Косметика разложена как в магазине ✅</div>
+        </div>
+    </section>
+
+    <!-- AI-визуализации (можно заменить на реальные фото ПОСЛЕ) -->
+    <section id="viz">
+        <h2>🤖 Фото «ПОСЛЕ» / визуализации: как будет выглядеть комната</h2>
+        <div class="photo-grid">
+            <div class="photo-card">
+                <img src="stol_posle.jpg" alt="Чистый стол после" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%23cbd8bf%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%273c5e2b%27 font-size=%2711%27%3E✨ ФОТО ПОСЛЕ: идеальный стол с органайзерами%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>После #1 — Чистый стол</strong><br>Органайзеры, порядок, нет хлама.</div>
+            </div>
+            <div class="photo-card">
+                <img src="svet_posle.jpg" alt="Яркое освещение" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%23f5e1b3%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%237a4a2c%27 font-size=%2711%27%3E💡 Яркий свет + LED-лента%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>После #2 — Идеальное освещение</strong><br>Светильник+лента, комфорт для глаз.</div>
+            </div>
+            <div class="photo-card">
+                <img src="monster_high_polka.jpg" alt="Полки Monster High" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%23efcfb5%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%235e3926%27 font-size=%2711%27%3E🧛‍♀️ Новые полки для Monster High%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>После #3 — Кукольный бутик</strong><br>Две полки, коллекция красуется.</div>
+            </div>
+            <div class="photo-card">
+                <img src="kosmetika_poriadok.jpg" alt="Косметика в порядке" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27210%27 viewBox=%270 0 400 210%27%3E%3Crect width=%27400%27 height=%27210%27 fill=%27%23f7ddcd%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 fill=%27b35f41%27 font-size=%2711%27%3E💄 Органайзеры и чистота%3C/text%3E%3C/svg%3E'">
+                <div class="caption"><strong>После #4 — Косметика в идеале</strong><br>Вращающийся органайзер, кисти в подставке.</div>
+            </div>
+        </div>
+        <p style="margin-top: 0.5rem;">🌟 <strong>Совет:</strong> замените эти заглушки на реальные фотографии вашей комнаты ПОСЛЕ наведения порядка — получится наглядное портфолио преображения!</p>
+    </section>
+
+    <!-- Чек-лист действий -->
+    <section id="checklist">
+        <h2>✅ Чек-лист «Порядок за 2 недели» для Ксюши</h2>
+        <div class="progress-bar"><div class="progress-fill" style="width: 41%;">41% выполнено (план готов, фото ждут)</div></div>
+        <ul class="checklist">
+            <li>Сфоткала 4 проблемы (захламленный стол, темно, куклы без места, косметика везде)</li>
+            <li>Прописала паспорт проекта и цели SMART</li>
+            <li>Подобрала органайзеры для стола и корзины</li>
+            <li>Купила настольный светильник и LED-ленту (плохое освещение уходит)</li>
+            <li>Заказала навесные полки для Monster High (решение №3)</li>
+            <li>Приобрела прозрачный органайзер и подставку для кистей (конец хаосу с косметикой)</li>
+            <li>Провела тотальную сор
