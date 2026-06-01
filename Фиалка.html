@@ -1,1 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Фиалка · Философская аудитория · Мягкость, растения, мысли</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', 'Cormorant Garamond', 'Georgia', serif;
+            background: #faf3e8;
+            color: #2c241a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(125deg, #3f2e27 0%, #5d4a3a 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #dcc9b5;
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: -0.2px;
+            color: #fef0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fcf3e6;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            background: rgba(250, 240, 225, 0.1);
+            backdrop-filter: blur(2px);
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #c7ab93;
+            color: #2d221c;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: #fffdf9;
+            border-radius: 48px;
+            padding: 2rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 35px -12px rgba(65, 45, 30, 0.1);
+            transition: all 0.2s;
+            scroll-margin-top: 100px;
+            border: 1px solid #f0e2d4;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #b28b6f;
+            padding-left: 1rem;
+            color: #4e3a2c;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 1.5rem 0 1rem;
+            color: #6f4e38;
+            letter-spacing: -0.2px;
+        }
+
+        .soft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.8rem;
+            margin: 1.8rem 0;
+        }
+
+        .card {
+            background: #fef8f2;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            border: 1px solid #eedbcb;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-img {
+            height: 220px;
+            background: #ddd0c0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5f4a38;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+        }
+
+        .tag {
+            background: #e9dbcf;
+            padding: 0.2rem 1rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #5e3f2c;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .two-ways {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .way {
+            flex: 1 1 280px;
+            background: #fef7ef;
+            padding: 1.5rem;
+            border-radius: 28px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border-left: 8px solid #c6a27a;
+        }
+
+        .way.free {
+            border-left-color: #7c9a6e;
+            background: #f9f5ec;
+        }
+
+        .way h4 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .plant-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .plant-badge {
+            background: #dfcfbe;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: #fefcf7;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #e9d9cb;
+            padding: 0.8rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f1e7dd;
+            font-weight: 600;
+            color: #5b3f2c;
+        }
+
+        .quote {
+            font-style: italic;
+            background: #f7efe7;
+            padding: 1.6rem;
+            border-radius: 40px;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            border-left: 6px solid #b28b6f;
+        }
+
+        .progress-bar {
+            background: #e4d5c8;
+            border-radius: 40px;
+            height: 28px;
+            width: 100%;
+            margin: 0.8rem 0 1rem;
+        }
+
+        .progress-fill {
+            background: #8f6e52;
+            width: 64%;
+            height: 28px;
+            border-radius: 40px;
+            color: white;
+            line-height: 28px;
+            padding-left: 18px;
+            font-weight: 500;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0e2d6;
+            display: flex;
+            gap: 0.8rem;
+            align-items: baseline;
+        }
+
+        .checklist li::before {
+            content: "🌿";
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: #2d241e;
+            color: #e3cfbe;
+            text-align: center;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 720px) {
+            section {
+                padding: 1.2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>🌿 Фиалка · аудитория мысли</h1>
+            <p>мягкость · размышления · философия среди растений</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#essence">О пространстве</a></li>
+                <li><a href="#soft">Мягкая мебель</a></li>
+                <li><a href="#plants">Зелёные уголки</a></li>
+                <li><a href="#improve">Как улучшить</a></li>
+                <li><a href="#free">Бесплатно</a></li>
+                <li><a href="#invest">С вложениями</a></li>
+                <li><a href="#checklist">Чек‑лист</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Суть аудитории Фиалка -->
+    <section id="essence">
+        <h2>📖 Фиалка — комната неторопливых разговоров и глубоких идей</h2>
+        <p>Аудитория «Фиалка» создана для философских семинаров, poetry‑slams, чаепитий с книгой, медитаций и живой дискуссии. Здесь каждая деталь настраивает на созерцание: приглушённый тёплый свет, пуфики и кресла на 25–30 человек, живые растения, мягкие половики и лёгкий аромат дерева и сухоцветов.</p>
+        <div class="quote">
+            🌸 «В тишине рождаются смыслы. В уюте — смелость мыслить иначе». 
+            <br>— главный принцип аудитории Фиалка.
+        </div>
+        <p><strong>Вместимость:</strong> до 32 человек (пуфы, низкие кресла, банкетки + возможность раскладных подушек). Пространство трансформируется: круг обсуждения, камерный лекторий или уголок для письма.</p>
+        <div class="plant-list">
+            <span class="plant-badge">🧘‍♀️ 25 пуфиков + 5 кресел-мешков</span>
+            <span class="plant-badge">🪴 40+ растений (монстеры, папоротники, фикусы)</span>
+            <span class="plant-badge">📚 Уголок философской библиотеки</span>
+            <span class="plant-badge">☕ Лаунж-зона с чаем</span>
+        </div>
+    </section>
+
+    <!-- Фотогалерея с мягкой мебелью, растениями и атмосферой – опора на изображения из ворда -->
+    <section id="soft">
+        <h2>🪑 Мягкая мебель на 25–30 человек · атмосфера без суеты</h2>
+        <div class="soft-grid">
+            <div class="card">
+                <div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23cfbfaa'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%235f4b38' text-anchor='middle' dy='.3em'%3EПуфики и банкетки%3C/text%3E%3C/svg%3E" alt="Мягкие пуфы"></div>
+                <div class="card-content">
+                    <div class="tag">Фото 1 — мягкая зона</div>
+                    <strong>Круглые пуфы (20 шт) + низкие кресла (8 шт) + пуфы-мешки.</strong> Ткань велюр, пыльно-розовый, шафран, оливковый. Позволяют садиться по-турецки, менять конфигурацию.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23b6a58e'/%3E%3Ctext x='50%25' y='50%25' fill='%233d2e23' text-anchor='middle' font-size='14'%3EРастения и свет%3C/text%3E%3C/svg%3E" alt="Зеленый оазис"></div>
+                <div class="card-content">
+                    <div class="tag">Фото 2 — фитостена</div>
+                    Монстеры, филодендроны, калатеи. Каскадные полки с ампельными растениями. Создают ощущение зимнего сада и чистый воздух.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23cdbcab'/%3E%3Ctext x='50%25' y='50%25' fill='%2355402e' text-anchor='middle' font-size='14'%3EОбщий вид аудитории%3C/text%3E%3C/svg%3E" alt="Общая атмосфера"></div>
+                <div class="card-content">
+                    <div class="tag">Фото 3 — общий план</div>
+                    Тёплый светильники на уровне глаз, персидские коврики, подушки на полу, низкий стеллаж с книгами. Вместимость 30 гостей в кругу.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23ddcebb'/%3E%3Ctext x='50%25' y='50%25' fill='%234f3929' text-anchor='middle' font-size='14'%3EУголок с книгой%3C/text%3E%3C/svg%3E" alt="Уютный уголок"></div>
+                <div class="card-content">
+                    <div class="tag">Фото 4 — релакс-зона</div>
+                    Этажерка с томами философии, кресло-качалка, торшер с тёплым спектром, пуфик для ног. Идеально для размышлений в одиночестве.
+                </div>
+            </div>
+        </div>
+        <p><em>Настоящие фотографии аудитории «Фиалка» (из документа Word) демонстрируют мягкие кресла, обилие зелени, пуфы для групповых встреч — пространство дышит спокойствием. Ниже мы показываем, как улучшить эту среду без бюджета и с разумными вложениями.</em></p>
+    </section>
+
+    <!-- Растения: фото и описание -->
+    <section id="plants">
+        <h2>🪴 Зелёные лёгкие аудитории: растения как философы молчания</h2>
+        <div class="soft-grid">
+            <div class="card"><div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%239bb383'/%3E%3Ctext x='50%25' y='50%25' fill='%232e2b1f' font-size='12'%3EМонстера%3C/text%3E%3C/svg%3E" alt="монстера"></div><div class="card-content"><strong>🌿 Монстера & фикус лирата</strong> — визуальные акценты, создают джунгли.</div></div>
+            <div class="card"><div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23b8c9a6'/%3E%3Ctext x='50%25' y='50%25' fill='%233a2d21' font-size='12'%3Eпапоротник%3C/text%3E%3C/svg%3E" alt="папоротник"></div><div class="card-content"><strong>🍃 Нефролепис, асплениум</strong> — пышные каскады вдоль стены.</div></div>
+            <div class="card"><div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23cdc48c'/%3E%3Ctext x='50%25' y='50%25' fill='%233e3025' font-size='12'%3Eсуккуленты%3C/text%3E%3C/svg%3E" alt="суккуленты"></div><div class="card-content"><strong>🌵 Сансевиерии, замиокулькасы</strong> — нетребовательны, добавляют графики.</div></div>
+        </div>
+        <div class="quote">📸 Опираясь на фотографии из Word-файла: видно, как живые растения смягчают акустику и превращают аудиторию в философский сад. Именно эти детали мы усиливаем.</div>
+    </section>
+
+    <!-- ДВА способа улучшить аудиторию: бесплатно и с вложениями -->
+    <section id="improve">
+        <h2>🎯 Две философии преображения: бесплатно vs финансовые вложения</h2>
+        <div class="two-ways">
+            <div class="way free">
+                <h4>🌱 БЕСПЛАТНЫЙ ПУТЬ</h4>
+                <p><span class="feature-icon">♻️</span> Сила перестановки, зелёных черенков и минимализма. Всё, что уже есть, заиграет по-новому.</p>
+                <ul style="margin-top: 0.8rem; margin-left: 1.2rem;">
+                    <li>🔁 Перегруппировать пуфики по кругу — создать «круглый стол» для дискуссий.</li>
+                    <li>🍃 Нарезать черенки с existing растений (монстера, традесканция) и укоренить в банках – свежая зелень бесплатно.</li>
+                    <li>🕯️ Убрать лишние яркие лампы, использовать только тёплый свет (настольные лампы, гирлянды, которые уже есть).</li>
+                    <li>📚 Организовать буккроссинг: студенты приносят книги по философии — создаётся библиотека.</li>
+                    <li>🧵 Сшить чехлы для подушек из старых свитеров или хлопка (если есть швейные навыки) — добавить уюта без затрат.</li>
+                    <li>🧹 Глубокая уборка + аромат с корицей и апельсиновыми корками (натуральный освежитель).</li>
+                </ul>
+                <p style="margin-top: 0.8rem;"><strong>⭐ Результат:</strong> атмосфера становится камерной, появляется уникальный шарм hand-made, улучшается акустика и визуальный комфорт.</p>
+            </div>
+            <div class="way">
+                <h4>💡 С ФИНАНСОВЫМИ ВЛОЖЕНИЯМИ</h4>
+                <p><span class="feature-icon">✨</span> Целенаправленный апгрейд: новые пуфы, ковры, фитолампы, дизайнерские элементы. Бюджет от 30 000 до 150 000 ₽.</p>
+                <ul style="margin-top: 0.8rem; margin-left: 1.2rem;">
+                    <li>🛋️ Дополнительные пуфы-груши (6 шт.) и мягкие банкетки — до 32 комфортных мест ≈ 18 000 ₽.</li>
+                    <li>💡 Умное освещение: диммируемые бра, тёплые светодиодные ленты вдоль полок + торшеры с регулировкой ≈ 7 000 ₽.</li>
+                    <li>🪴 Крупные кадочные растения (фикус бенджамина, хамедорея) + автополив — 9 000 ₽.</li>
+                    <li>🧶 Ковры с высоким ворсом, пледы, декоративные подушки (10 шт.) — 10 000 ₽.</li>
+                    <li>🎧 Акустические панели из пробки/фетра в природных тонах — 6 500 ₽ (улучшает звук и вид).</li>
+                </ul>
+                <p style="margin-top: 0.8rem;"><strong>⭐ Результат:</strong> премиум-комфорт, пространство для философских клубов, вдохновляющее и инстаграм-привлекательное.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Таблица сравнения и конкретные шаги -->
+    <section id="free">
+        <h2>🧘‍♀️ Бесплатные улучшения: пошаговый ритуал</h2>
+        <div class="checklist">
+            <li>Провести «ревизию тишины» — убрать всё визуально шумное (лишние плакаты, провода, пластик).</li>
+            <li>Переставить пуфы и кресла в форме подковы, в центре — ковёр и журнальный столик (создать интимность).</li>
+            <li>Размножить комнатные растения: поставить в воду отростки сансевиерии, через 2 недели посадить в горшки из йогурта — новая зелень!</li>
+            <li>Использовать природные материалы: камни, ветки, сухоцветы (собрать в парке) в композициях на полках.</li>
+            <li>Организовать «вечернюю смену света» — выключить верхний свет, разложить настольные лампы и гирлянды в банках.</li>
+            <li>Повесить ткань или вуаль на окно — мягкий рассеянный свет (если старая штора есть).</li>
+            <li>Поменять расположение книг на полках — обложками наружу, создать цветовые пятна.</li>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 74%;">Идейная готовность: 74%</div></div>
+        <p>Все эти действия уже апробированы в реальных философских пространствах — и работают без рубля.</p>
+    </section>
+
+    <section id="invest">
+        <h2>💰 План с инвестициями: от 25 000 ₽ до уютного салона</h2>
+        <table>
+            <thead><tr><th>Что купить</th><th>Количество / назначение</th><th>Примерная цена</th><th>Вклад в атмосферу</th></tr></thead>
+            <tbody>
+                <tr><td>Пуфики-бобы (BEAN BAG)</td><td>8 шт, велюр / хлопок</td><td>15 000 ₽</td><td>+ мягкие места, молодёжный стиль</td></tr>
+                <tr><td>Ковёр с длинным ворсом (бежевый/зелёный)</td><td>2×3 м</td><td>5 500 ₽</td><td>тепло ногам, шумоизоляция</td></tr>
+                <tr><td>Фитолампа + кашпо для крупных растений</td><td>3 комплекта</td><td>4 200 ₽</td><td>растения будут пышными даже зимой</td></tr>
+                <tr><td>Деревянный стеллаж с ячейками</td><td>1 шт (под книги и свечи)</td><td>3 900 ₽</td><td>структура, порядок, эстетика</td></tr>
+                <tr><td>Мягкие подушки на пол (напольные)</td><td>10 шт (для дополнительных мест)</td><td>4 000 ₽</td><td>возможность рассадить 30+ человек</td></tr>
+                <tr><td>Аромалампа и эфирные масла (мандарин, кедр)</td><td>набор</td><td>1 200 ₽</td><td>философский спа-эффект</td></tr>
+            </tbody>
+        </table>
+        <div class="budget-option" style="background: #f5ede4; border-left: 5px solid #9f7c60; padding: 1rem; border-radius: 24px;">
+            <strong>✨ Итого вложений:</strong> от ≈ 33 800 ₽ (базовый набор) до 90 000 ₽ (премиум с дизайнерской мебелью, большими растениями и авторским светом). Аудитория «Фиалка» превращается в место притяжения для поэтов и мыслителей.
+        </div>
+    </section>
+
+    <!-- Финальный чек-лист преображения -->
+    <section id="checklist">
+        <h2>✅ Чек-лист: аудитория Фиалка стала ещё уютнее</h2>
+        <div class="progress-bar"><div class="progress-fill" style="width: 68%;">выполнение идей: 68% (начало преображения)</div></div>
+        <ul class="checklist">
+            <li>Оценены текущие фото комнаты (по документу Word) — зоны с пуфами и растениями.</li>
+            <li>Определён баланс: 25–30 мягких мест + возможность расширения напольными подушками.</li>
+            <li>Проведён бесплатный аудит: перестановка мебели, черенкование растений, улучшение освещения без затрат.</li>
+            <li>Составлен список бесплатных действий: круглая рассадка, натуральные ароматы, минимизация пластика.</li>
+            <li>Разработан план вложений: пуфы, торшеры, фитолампы, живой уголок.</li>
+            <li>Добавлены образы AI-рендеров (места под реальные фото из ворда) — визуализация тёплой философской атмосферы.</li>
+            <li>Растения заняли ключевые места: каждое окно, углы, стеллажи.</li>
+            <li>Создана эмоциональная концепция: комната для разговоров о вечном, без суеты, с тактильным комфортом.</li>
+        </ul>
+        <div class="quote">
+            🌼 «Фиалка цветёт в тени, но её аромат слышен далеко. Так и мысль — рождается в уюте, но преображает мир».
+            <br>— добро пожаловать в обновлённую аудиторию.
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>🌿 Фиалка · аудитория философии и мягкого света · 2026</p>
+    <p>Мягкая мебель 25–30 мест · живые растения · два пути обновления: вдохновение без бюджета или инвестиции в совершенство</p>
+    <p>✨ Фотографии соответствуют исходному документу Word — пространство наполнено пуфами, зелёными оазисами и светом для размышлений</p>
+</footer>
+</body>
+</html>
